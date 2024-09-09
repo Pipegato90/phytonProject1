@@ -1,0 +1,45 @@
+# Definiendo constantes
+ciudades = ["Quito", "Guayaquil", "Cuenca", "Ambato"]
+dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+semanas = 4  # por ejemplo, 4 semanas
+
+# Inicializando la matriz 3D para las temperaturas
+# dimensiones: [ciudades][días][semanas]
+temperaturas = [
+    [  # Quito
+        [20, 21, 19, 22],  # Semana 1
+        [21, 19, 20, 22],  # Semana 2
+        [22, 20, 21, 19],  # Semana 3
+        [21, 22, 20, 20]   # Semana 4
+    ],
+    [  # Guayaquil
+        [30, 31, 29, 32],  # Semana 1
+        [31, 29, 30, 32],  # Semana 2
+        [32, 30, 31, 29],  # Semana 3
+        [31, 32, 30, 30]   # Semana 4
+    ],
+    [  # Cuenca
+        [15, 16, 14, 17],  # Semana 1
+        [16, 14, 15, 17],  # Semana 2
+        [17, 15, 16, 14],  # Semana 3
+        [16, 17, 15, 15]   # Semana 4
+    ],
+    [  # Ambato
+        [18, 19, 17, 20],  # Semana 1
+        [19, 17, 18, 20],  # Semana 2
+        [20, 18, 19, 17],  # Semana 3
+        [19, 20, 18, 18]   # Semana 4
+    ]
+]
+
+# Calculando promedios
+for i, ciudad in enumerate(ciudades):
+    print(f"Promedios de temperatura para {ciudad}:")
+    for semana in range(semanas):
+        suma_temperaturas = 0
+        for dia in range(len(dias)):
+            suma_temperaturas += temperaturas[i][dia][semana]
+
+        promedio = suma_temperaturas / len(dias)
+        print(f"  Semana {semana + 1}: {promedio:.2f} °C")
+
